@@ -1,4 +1,4 @@
-package com.example.smartbudget.ui
+package com.example.smartbudget.ui.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.smartbudget.R
 
-class AddTransactionFragment : Fragment() {
+class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_add_transaction, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 }

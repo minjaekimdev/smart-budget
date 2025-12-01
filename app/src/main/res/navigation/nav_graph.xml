@@ -6,11 +6,11 @@
 
     <fragment
         android:id="@+id/addTransactionFragment"
-        android:name="com.example.smartbudget.ui.AddTransactionFragment"
+        android:name="com.example.smartbudget.ui.view.AddTransactionFragment"
         android:label="AddTransactionFragment" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.smartbudget.ui.HomeFragment"
+        android:name="com.example.smartbudget.ui.view.HomeFragment"
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_addTransactionFragment"
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/monthSelectionFragment"
-        android:name="com.example.smartbudget.ui.MonthSelectionFragment"
+        android:name="com.example.smartbudget.ui.view.MonthSelectionFragment"
         android:label="MonthSelectionFragment" >
         <action
             android:id="@+id/action_monthSelectionFragment_to_statisticsFragment"
@@ -29,6 +29,6 @@
     </fragment>
     <fragment
         android:id="@+id/statisticsFragment"
-        android:name="com.example.smartbudget.ui.StatisticsFragment"
+        android:name="com.example.smartbudget.ui.view.StatisticsFragment"
         android:label="StatisticsFragment" />
 </navigation>

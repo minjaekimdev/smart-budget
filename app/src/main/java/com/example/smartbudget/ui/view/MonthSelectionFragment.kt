@@ -1,4 +1,4 @@
-package com.example.smartbudget.ui
+package com.example.smartbudget.ui.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
