@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/addTransactionFragment">
+
+    <fragment
+        android:id="@+id/addTransactionFragment"
+        android:name="com.example.smartbudget.ui.AddTransactionFragment"
+        android:label="AddTransactionFragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.smartbudget.ui.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_addTransactionFragment"
+            app:destination="@id/addTransactionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_monthSelectionFragment"
+            app:destination="@id/monthSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/monthSelectionFragment"
+        android:name="com.example.smartbudget.ui.MonthSelectionFragment"
+        android:label="MonthSelectionFragment" >
+        <action
+            android:id="@+id/action_monthSelectionFragment_to_statisticsFragment"
+            app:destination="@id/statisticsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.example.smartbudget.ui.StatisticsFragment"
+        android:label="StatisticsFragment" />
+</navigation>
