@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.smartbudget.R
+import com.example.smartbudget.data.model.TransactionEntity
 // databinding: 뷰 바인딩(View Binding) 또는 데이터 바인딩(Data Binding) 기능을
 // 활성화했을 때, 자동으로 생성되는 모든 바인딩 클래스를 모아두기 위해 자동 생성되는 패키지
 import com.example.smartbudget.databinding.FragmentAddTransactionBinding
@@ -95,6 +96,15 @@ class AddTransactionFragment : Fragment() {
         }
 
         val amount = amountStr.toInt()
+
+        // TransactionEntity 객체 생성 후 데이터 담기
+        val newTransaction = TransactionEntity(
+            id = 0, // autoGenerate=true 이므로 0으로 전달
+            type = type,
+            amount = amount,
+            date = date,
+            note = note
+        )
 
         // ==========================================================
         // DB 대신 로그로 확인하기 (Mocking)
