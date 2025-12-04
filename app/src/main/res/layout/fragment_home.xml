@@ -24,7 +24,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@android:drawable/ic_menu_my_calendar"
-                android:contentDescription="Icon"
+                android:contentDescription="Calendar Icon"
                 android:layout_gravity="end"/>
 
             <TextView
@@ -38,10 +38,12 @@
                 android:id="@+id/tv_total_balance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="₩ 1,000,000"
+                tools:text="₩ 1,000,000"
                 android:textSize="32sp"
                 android:textStyle="bold"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                app:drawableEndCompat="@android:drawable/ic_menu_edit"
+                android:drawablePadding="8dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -54,7 +56,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="수입: +50,000"
+                    tools:text="수입: +50,000"
                     android:textColor="@android:color/holo_blue_dark"/>
 
                 <TextView
@@ -62,10 +64,54 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="지출: -20,000"
+                    tools:text="지출: -20,000"
                     android:textAlignment="viewEnd"
                     android:textColor="@android:color/holo_red_dark"/>
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E0E0E0"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="12dp"/>
+
+            <LinearLayout
+                android:id="@+id/layout_budget_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@android:drawable/ic_lock_idle_alarm"
+                    app:tint="#757575"
+                    android:contentDescription="Budget Icon"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text=" 이번달 목표 예산 설정"
+                    android:textSize="14sp"
+                    android:textColor="#757575"
+                    android:layout_marginStart="4dp"/>
+
+                <TextView
+                    android:id="@+id/tv_budget_limit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="설정하기 >"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/holo_orange_dark"/>
+            </LinearLayout>
+
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
