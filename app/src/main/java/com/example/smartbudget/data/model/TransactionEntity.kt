@@ -11,5 +11,5 @@ data class TransactionEntity(
     val type: String,        // INCOME / EXPENSE
     val date: String,        // 예: "2025-12-04"
     val amount: Int,
-    val description: String
+    val note: String
 )
