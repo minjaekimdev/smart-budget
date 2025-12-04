@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.viewModels
+import com.example.smartbudget.ui.viewmodel.MainViewModel
 import com.example.smartbudget.R
 import com.example.smartbudget.data.model.TransactionEntity
 // databinding: 뷰 바인딩(View Binding) 또는 데이터 바인딩(Data Binding) 기능을
@@ -18,6 +20,7 @@ import java.util.Calendar
 class AddTransactionFragment : Fragment() {
     private var _binding: FragmentAddTransactionBinding? = null // fragment_add_transaction.xml에 접근하기 위한 View Binding 객체
     private val binding get() = _binding!! // binding에 접근할 때마다 _binding!!의 결과값을 가져옴(널체크 없이 접근하기위함)
+    private val viewModel: MainViewModel by viewModels()
 
     // 프래그먼트가 자신의 뷰 계층 구조를 처음 그릴 때 이 메서드가 호출됨
     // inflater: LayoutInflater -> .xml 파일을 메모리의 실제 View 객체로 변환하는 데 사용되는 객체(Android시스템이 전달함)
@@ -113,8 +116,8 @@ class AddTransactionFragment : Fragment() {
         // 1. 로그 출력: 하단 Logcat 탭에서 확인 가능
         Log.d("SmartBudget", ">>> 저장 시도! 유형:$type, 날짜:$date, 금액:$amount, 내용:$note")
 
-        // --- 나중에 팀원 A가 DB 완성하면 아래 코드 추가하기 ---
-        // viewModel.addTransaction(TransactionEntity(0, type, amount, date, note))
+        // DB에 내역 저장
+        viewModel.addTransaction(TransactionEntity(0, type, amount, date, note))
         // 2. 사용자에게 알림
         Toast.makeText(context, "저장되었습니다! (테스트 모드)", Toast.LENGTH_SHORT).show()
 
