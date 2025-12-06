@@ -13,7 +13,7 @@ interface TransactionDao {
     @Query("SELECT * FROM transaction_table ORDER BY date DESC")
     fun getAll(): LiveData<List<TransactionEntity>>
 
-    @Query("SELECT * FROM transaction_table WHERE date LIKE :yearMonth || '%'")
+    @Query("SELECT * FROM transaction_table WHERE date LIKE :yearMonth || '%' ORDER BY date DESC")
     fun getByMonth(yearMonth: String): LiveData<List<TransactionEntity>>
 
     @Insert

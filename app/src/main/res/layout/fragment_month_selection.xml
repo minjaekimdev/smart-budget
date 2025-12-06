@@ -6,156 +6,90 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/tv_title_month"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="월별 정리"
+        android:id="@+id/btn_prev_year"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+
+        android:text="◀"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:textColor="#3F51B5"
+        android:gravity="center"
+
+        android:includeFontPadding="false"
+        android:scaleX="1.2"
+
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_year"
+        app:layout_constraintTop_toTopOf="@id/tv_year"
+        app:layout_constraintBottom_toBottomOf="@id/tv_year"/>
+
+    <TextView
+        android:id="@+id/tv_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2025"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="16dp"
+
+        app:layout_constraintStart_toEndOf="@id/btn_prev_year"
+        app:layout_constraintEnd_toStartOf="@id/btn_next_year"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/btn_next_year"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+
+        android:text="▶"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#3F51B5"
+        android:gravity="center"
+
+        android:includeFontPadding="false"
+        android:scaleX="1.2"
+
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+
+        app:layout_constraintStart_toEndOf="@id/tv_year"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_year"
+        app:layout_constraintBottom_toBottomOf="@id/tv_year"/>
 
     <GridLayout
         android:id="@+id/grid_months"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:columnCount="3"
-        android:rowCount="3"
-        app:layout_constraintTop_toBottomOf="@id/tv_title_month"
+        android:rowCount="4"
+        app:layout_constraintTop_toBottomOf="@id/tv_year"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <Button
-            android:id="@+id/btn_jan"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="4dp"
-            android:text="1월"
-            android:textSize="18sp"/>
-
-        <Button
-            android:id="@+id/btn_feb"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="4dp"
-            android:text="2월"
-            android:textSize="18sp"/>
-
-        <Button
-            android:id="@+id/btn_mar"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="4dp"
-            android:text="3월"
-            android:textSize="18sp"/>
-
-        <Button
-            android:id="@+id/btn_apr"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="4dp"
-            android:text="4월"
-            android:textSize="18sp"/>
-
-        <Button
-            android:id="@+id/btn_may"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="4dp"
-            android:text="5월"
-            android:textSize="18sp"/>
-
-        <Button
-            android:id="@+id/btn_jun"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="4dp"
-            android:text="6월"
-            android:textSize="18sp"/>
-
-        <Button
-            android:id="@+id/btn_jul"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="4dp"
-            android:text="7월"
-            android:textSize="18sp"/>
-
-        <Button
-            android:id="@+id/btn_aug"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="4dp"
-            android:text="8월"
-            android:textSize="18sp"/>
-
-        <Button
-            android:id="@+id/btn_sep"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="4dp"
-            android:text="9월"
-            android:textSize="18sp"/>
-
-        <Button
-            android:id="@+id/btn_oct"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="4dp"
-            android:text="10월"
-            android:textSize="18sp"/>
-
-        <Button
-            android:id="@+id/btn_nov"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="4dp"
-            android:text="11월"
-            android:textSize="18sp"/>
-
-        <Button
-            android:id="@+id/btn_dec"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="4dp"
-            android:text="12월"
-            android:textSize="18sp"/>
+        <Button android:id="@+id/btn_jan" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:layout_margin="4dp" android:text="1월" android:textSize="18sp"/>
+        <Button android:id="@+id/btn_feb" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:layout_margin="4dp" android:text="2월" android:textSize="18sp"/>
+        <Button android:id="@+id/btn_mar" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:layout_margin="4dp" android:text="3월" android:textSize="18sp"/>
+        <Button android:id="@+id/btn_apr" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:layout_margin="4dp" android:text="4월" android:textSize="18sp"/>
+        <Button android:id="@+id/btn_may" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:layout_margin="4dp" android:text="5월" android:textSize="18sp"/>
+        <Button android:id="@+id/btn_jun" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:layout_margin="4dp" android:text="6월" android:textSize="18sp"/>
+        <Button android:id="@+id/btn_jul" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:layout_margin="4dp" android:text="7월" android:textSize="18sp"/>
+        <Button android:id="@+id/btn_aug" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:layout_margin="4dp" android:text="8월" android:textSize="18sp"/>
+        <Button android:id="@+id/btn_sep" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:layout_margin="4dp" android:text="9월" android:textSize="18sp"/>
+        <Button android:id="@+id/btn_oct" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:layout_margin="4dp" android:text="10월" android:textSize="18sp"/>
+        <Button android:id="@+id/btn_nov" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:layout_margin="4dp" android:text="11월" android:textSize="18sp"/>
+        <Button android:id="@+id/btn_dec" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:layout_margin="4dp" android:text="12월" android:textSize="18sp"/>
 
     </GridLayout>
 

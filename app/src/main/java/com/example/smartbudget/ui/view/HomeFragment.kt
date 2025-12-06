@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels // [중요] ViewModel 연결 도구
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartbudget.R
 import com.example.smartbudget.data.model.TransactionEntity
 import com.example.smartbudget.databinding.FragmentHomeBinding
@@ -21,11 +22,11 @@ import com.example.smartbudget.ui.viewmodel.MainViewModel
 import java.text.DecimalFormat
 
 class HomeFragment : Fragment() {
-
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
     // 1. ViewModel 연결 (DB 데이터 요청용)
+    // MainViewModel 인스턴스 생성
     private val viewModel: MainViewModel by viewModels()
 
     // 2. 어댑터 선언 (리스트 연결용)
@@ -45,11 +46,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1. 리싸이클러뷰(리스트) 설정
+        // 리싸이클러뷰 설정(어댑터 연결, 삭제를 위한 리스너 연결)
         setupRecyclerView()
 
-        // 2. [핵심] DB 데이터 관찰 (데이터가 변하면 UI 자동 갱신)
-        // DB에 내역이 추가/삭제될 때마다 이 안의 코드가 자동으로 실행됩니다.
+        // DB 데이터 관찰 (데이터가 변하면 UI 자동 갱신)
+        // DB에 내역이 추가/삭제될 때마다 이 안의 코드가 자동으로 실행된다.
         viewModel.allTransactions.observe(viewLifecycleOwner) { list ->
             // (A) 리스트에 데이터 집어넣기
             adapter.setData(list)
@@ -74,12 +75,14 @@ class HomeFragment : Fragment() {
         }
     }
 
-    // --- [기능 1] 리싸이클러뷰 설정 및 삭제 기능 연결 ---
+    // 리싸이클러뷰 설정 및 삭제 기능 연결
     private fun setupRecyclerView() {
-        // 어댑터 생성 (아이템을 꾹 눌렀을 때 삭제 팝업 띄우기)
+        // TransactionAdapter 인스턴스 생성
         adapter = TransactionAdapter { item ->
             showDeleteDialog(item)
         }
+        binding.rvRecentTransactions.layoutManager = LinearLayoutManager(requireContext())
+        // fragment_home.xml의 rv_recent_transactions에 adapter 연결
         binding.rvRecentTransactions.adapter = adapter
     }
 
@@ -133,8 +136,10 @@ class HomeFragment : Fragment() {
             .show()
     }
 
-    // --- [기능 4] 삭제 확인 팝업 ---
+    // 삭제 확인 팝업
     private fun showDeleteDialog(item: TransactionEntity) {
+        // 사용자에게 표시할 대화상자를 만듦
+        // requireContext(): 현재 Fragment가 연결되어 있는 Activity의 Context를 반환함
         AlertDialog.Builder(requireContext())
             .setTitle("내역 삭제")
             .setMessage("이 내역을 삭제하시겠습니까?")

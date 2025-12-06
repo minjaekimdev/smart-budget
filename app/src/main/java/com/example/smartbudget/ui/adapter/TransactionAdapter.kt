@@ -9,11 +9,15 @@ import com.example.smartbudget.R
 import com.example.smartbudget.data.model.TransactionEntity
 import java.text.DecimalFormat
 
+// 데이터베이스에서 가져온 거래내역 리스트를 사용자 인터페이스의 스크롤 가능한 목록 형태로 변환하여 화면에 표시
 class TransactionAdapter(
+    // 어댑터 내애서만 접근 가능한(private) 불변(val) 변수
+    // 이 함수가 호출될 때 TransactionEntity 타입의 객체 하나를 인자로 받음(삭제대상)
+    // -> Unit: 함수가 실행된 후 어떤 값도 반환하지 않음
+    // 즉, 어떤 거래 내역을 삭제해야 하는지 알려주는 코드를 담는 상자
     private val onDeleteClick: (TransactionEntity) -> Unit
 ) : RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {
-
-    // 1. 데이터를 담을 빈 리스트
+    // list: TransactionEntity 객체들을 담는 리스트
     private var list = emptyList<TransactionEntity>()
 
     // 2. 숫자 포맷 (1000 -> 1,000)

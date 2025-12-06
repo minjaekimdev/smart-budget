@@ -101,14 +101,6 @@ class AddTransactionFragment : Fragment() {
         val amount = amountStr.toInt()
 
         // TransactionEntity 객체 생성 후 데이터 담기
-        val newTransaction = TransactionEntity(
-            id = 0, // autoGenerate=true 이므로 0으로 전달
-            type = type,
-            amount = amount,
-            date = date,
-            note = note
-        )
-
         // ==========================================================
         // DB 대신 로그로 확인하기 (Mocking)
         // ==========================================================
@@ -117,7 +109,7 @@ class AddTransactionFragment : Fragment() {
         Log.d("SmartBudget", ">>> 저장 시도! 유형:$type, 날짜:$date, 금액:$amount, 내용:$note")
 
         // DB에 내역 저장
-        viewModel.addTransaction(TransactionEntity(0, type, amount, date, note))
+        viewModel.addTransaction(TransactionEntity(0, type, date, amount, note))
         // 2. 사용자에게 알림
         Toast.makeText(context, "저장되었습니다! (테스트 모드)", Toast.LENGTH_SHORT).show()
 

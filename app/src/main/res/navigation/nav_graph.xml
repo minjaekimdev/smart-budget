@@ -30,5 +30,10 @@
     <fragment
         android:id="@+id/statisticsFragment"
         android:name="com.example.smartbudget.ui.view.StatisticsFragment"
-        android:label="StatisticsFragment" />
+        android:label="StatisticsFragment" >
+        <argument
+            android:name="selectedMonth"
+            app:argType="string"
+            android:defaultValue="2025-01" />
+    </fragment>
 </navigation>

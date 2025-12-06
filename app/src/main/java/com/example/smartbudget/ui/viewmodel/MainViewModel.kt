@@ -17,12 +17,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     init {
         // 1. DB 인스턴스에서 DAO 꺼내기
         // (application context를 사용해 DB를 엽니다)
-        val transactionDao = AppDatabase.getDatabase(application).transactionDao()
+        val transactionDao = AppDatabase.getInstance(application).transactionDao()
 
         // 2. Repository 생성 (DAO를 넘겨줌)
         repository = TransactionRepository(transactionDao)
 
         // 3. 데이터 연결 (Repository의 데이터를 뷰모델 변수에 연결)
+        // Fragment까 allTransactions를 관찰할 수 있음
         allTransactions = repository.allTransactions
     }
 
